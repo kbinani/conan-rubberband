@@ -31,7 +31,7 @@ class RubberbandConan(ConanFile):
             self.run("cmake --build . %s" % cmake.build_config)
 
     def package(self):
-        self.copy("*.h", src="rubberband", dst="include", keep_path=False)
+        self.copy("*.h", src="rubberband", dst="include/rubberband", keep_path=False)
         if self.settings.os == "Windows":
             for build_type in ["Debug", "Release"]:
                 self.copy("*.dll", src=build_type, dst="lib/%s" % build_type, keep_path=False)
